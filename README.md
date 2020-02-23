@@ -4,7 +4,7 @@ Flask APIs Sample using [Axioms](https://axioms.io). Secure your Express APIs us
 ## Prerequisite
 
 * Python 3.7+
-* An [Axioms](https://axioms.io) client which can obtain access token after user's authentication and authorization and include in `Authorization` header of all API request sent to Node/Express application server.
+* An [Axioms](https://axioms.io) client which can obtain access token after user's authentication and authorization and include in `Authorization` header of all API request sent to Python/Flask application server.
 
 ## Setup
 Clone this repository,
