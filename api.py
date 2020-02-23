@@ -35,5 +35,4 @@ def index():
     """
     Index for this app
     """
-    print(app.config)
     return jsonify({'api': 'Your Services'})
