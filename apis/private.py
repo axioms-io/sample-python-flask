@@ -15,4 +15,4 @@ def api_private():
     """
     Private endpoint
     """
-    return jsonify({'message': 'All good. You are authenticated'})
+    return jsonify({'message': 'All good. You are authenticated!'})

@@ -1,24 +1,23 @@
 import json
-import hashlib
 import ssl
-import base64
 from jwcrypto import jwk, jws
 from werkzeug.contrib.cache import SimpleCache
-from datetime import datetime, date, timedelta
+from datetime import datetime
 from flask import request
 import jwt
 from six.moves.urllib.request import urlopen
 from box import Box
 from error import AxiomsError
-from config import AXIOMS_DOMAIN, URL_LIB_SSL_IGNORE
+from options import URL_LIB_SSL_IGNORE
+from flask import current_app as app
 
 cache = SimpleCache()
 
 
-def has_bearer_token(request):
+def has_bearer_token(request_obj):
     header_name = 'Authorization'
     token_prefix = 'bearer'
-    auth_header = request.headers.get(header_name, None)
+    auth_header = request_obj.headers.get(header_name, None)
     if auth_header is None:
         raise AxiomsError({"code": "missing_authorization_header",
                            "description": "Missing Authorization Header"}, 401)
@@ -35,14 +34,14 @@ def has_bearer_token(request):
 
 def has_valid_token(token):
     kid = jwt.get_unverified_header(token)['kid']
-    key = get_key_from_jwks_json(AXIOMS_DOMAIN, kid)
+    key = get_key_from_jwks_json(app.config["AXIOMS_DOMAIN"], kid)
     payload = check_token_validity(token, key)
-    if payload:
+    if payload and app.config["AXIOMS_AUDIENCE"] in payload.aud: # pylint: disable=maybe-no-member
         request.auth_jwt = payload
         return True
     else:
-        raise AxiomsError({"code": "invalid_authorization_token",
-                           "description": "Invalid Authorization Token"}, 401)
+        raise AxiomsError({"code": "invalid_access_token",
+                           "description": "Invalid access token"}, 401)
 
 def check_token_validity(token, key):
     payload = get_payload_from_token(token, key)

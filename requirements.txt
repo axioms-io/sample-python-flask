@@ -17,3 +17,4 @@ Werkzeug==0.16.1
 marshmallow==2.19.2
 python-box==3.4.5
 jwcrypto==0.6.0
+Flask-DotEnv==0.1.2
