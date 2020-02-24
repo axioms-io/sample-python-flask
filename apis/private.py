@@ -4,7 +4,7 @@ Private APIs
 from flask import Blueprint
 from flask import jsonify
 from options import PATH_PREFIX
-from utils.decorators import is_authenticated, has_required_scopes
+from axioms_flask.decorators import is_authenticated, has_required_scopes
 
 private_api = Blueprint('private_api', __name__) # pylint: disable=invalid-name
 

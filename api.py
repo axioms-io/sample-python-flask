@@ -7,7 +7,7 @@ from apis.public import public_api
 from apis.private import private_api
 from apis.admin import admin_api
 from options import PATH_PREFIX
-from error import AxiomsError
+from axioms_flask.error import AxiomsError
 from flask_cors import CORS
 
 # Flask app
