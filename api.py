@@ -9,11 +9,22 @@ from apis.role import role_api
 from apis.permission import permission_api
 from axioms_flask.error import AxiomsError
 from flask_cors import CORS
+from os import environ
 
 # Flask app
 app = Flask(__name__)  # pylint: disable=invalid-name
 app.config.from_object("config")
+
+# if .env file available
 env = DotEnv(app)
+
+# else use environment variables
+if environ.get('AXIOMS_DOMAIN', None):
+    app.config['AXIOMS_DOMAIN'] = environ.get('AXIOMS_DOMAIN', None)
+if environ.get('AXIOMS_AUDIENCE', None):
+    app.config['AXIOMS_AUDIENCE'] = environ.get('AXIOMS_AUDIENCE', None)
+if environ.get('URL_LIB_SSL_IGNORE', True):
+    app.config['URL_LIB_SSL_IGNORE'] = environ.get('URL_LIB_SSL_IGNORE', True)
 
 # Setup CORS globally
 cors = CORS(app, resources={r"/*": {"origins": "*"}})

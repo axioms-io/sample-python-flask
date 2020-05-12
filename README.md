@@ -49,3 +49,10 @@ flask run
 
 ## Test using Postman
 Postman collection is included in this repository. Import the collection in your Postman, setup environment variables `host` (i.e. localhost:5000) and `access_token` (you can obtain from your client) and test these APIs.
+
+## Deploy on Heroku
+You will need to provide Axioms domain and Axioms audience to complete deployment.
+
+<a href="https://heroku.com/deploy?template=https://github.com/axioms-io/sample-python-flask">
+  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy" width="200px">
+</a>

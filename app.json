@@ -1,0 +1,19 @@
+{
+    "name": "Sample Python Flask",
+    "description": "Sample Python Flask APIs secured by Axioms authentication and authorization",
+    "website": "http://axioms.io",
+    "success_url": "/",
+    "env": {
+        "AXIOMS_DOMAIN": {
+            "description": "Axioms Domain",
+            "value": "",
+            "required": true
+        },
+        "AXIOMS_AUDIENCE": {
+            "description": "Axioms Audience Identifier or Endpoint for this API resource",
+            "value": "",
+            "required": true
+        }
+    },
+    "repository": "https://github.com/axioms-io/sample-python-flask"
+}

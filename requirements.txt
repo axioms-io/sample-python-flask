@@ -17,3 +17,6 @@ marshmallow==2.19.2
 Flask-DotEnv==0.1.2
 axioms-flask-py==0.0.4
 # -e /Users/abhishektiwari/d3ml/axioms/axioms-flask-py
+
+# Gunicorn
+gunicorn==20.0.4
