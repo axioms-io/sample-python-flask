@@ -49,7 +49,59 @@
 			"response": []
 		},
 		{
-			"name": "Admin",
+			"name": "Role - Create Sample",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/role",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"role"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Role - Update Sample",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/role",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"role"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Role - Read Sample",
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -63,12 +115,142 @@
 					}
 				],
 				"url": {
-					"raw": "{{host}}/admin",
+					"raw": "{{host}}/role",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"admin"
+						"role"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Role - Delete Sample",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/role",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"role"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Permission - Create Sample",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/permission",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"permission"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Permission - Update Sample",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/permission",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"permission"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Permission - Get Sample",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/permission",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"permission"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Permission - Delete Sample",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/permission",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"permission"
 					]
 				}
 			},

@@ -1,15 +1,15 @@
 """
-Public APIs
+Public API
 """
 from flask import Blueprint
 from flask import jsonify
-from options import PATH_PREFIX
 
-public_api = Blueprint('public_api', __name__) # pylint: disable=invalid-name
+public_api = Blueprint("public_api", __name__)  # pylint: disable=invalid-name
 
-@public_api.route(PATH_PREFIX+'public', methods=["GET"])
+
+@public_api.route("/public", methods=["GET"])
 def api_public():
     """
-    Public endpoint
+    Public API - no authentication required
     """
-    return jsonify({'message': 'Hello from a public endpoint!'})
+    return jsonify({"message": "Hello from a public endpoint!"})
