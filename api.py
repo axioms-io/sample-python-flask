@@ -23,8 +23,6 @@ if environ.get('AXIOMS_DOMAIN', None):
     app.config['AXIOMS_DOMAIN'] = environ.get('AXIOMS_DOMAIN', None)
 if environ.get('AXIOMS_AUDIENCE', None):
     app.config['AXIOMS_AUDIENCE'] = environ.get('AXIOMS_AUDIENCE', None)
-if environ.get('URL_LIB_SSL_IGNORE', True):
-    app.config['URL_LIB_SSL_IGNORE'] = environ.get('URL_LIB_SSL_IGNORE', True)
 
 # Setup CORS globally
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
