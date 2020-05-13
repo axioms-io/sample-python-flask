@@ -3,13 +3,13 @@ Private API with permission based access
 """
 from flask import Blueprint
 from flask import jsonify
-from axioms_flask.decorators import is_authenticated, has_required_permissions
+from axioms_flask.decorators import has_valid_access_token, has_required_permissions
 
 permission_api = Blueprint("permission_api", __name__)  # pylint: disable=invalid-name
 
 
 @permission_api.route("/permission", methods=["POST"])
-@is_authenticated
+@has_valid_access_token
 @has_required_permissions(["sample:create"])
 def sample_create():
     """
@@ -19,7 +19,7 @@ def sample_create():
 
 
 @permission_api.route("/permission", methods=["PATCH"])
-@is_authenticated
+@has_valid_access_token
 @has_required_permissions(["sample:update"])
 def sample_update():
     """
@@ -29,7 +29,7 @@ def sample_update():
 
 
 @permission_api.route("/permission", methods=["GET"])
-@is_authenticated
+@has_valid_access_token
 @has_required_permissions(["sample:read"])
 def sample_read():
     """
@@ -39,7 +39,7 @@ def sample_read():
 
 
 @permission_api.route("/permission", methods=["DELETE"])
-@is_authenticated
+@has_valid_access_token
 @has_required_permissions(["sample:delete"])
 def sample_delete():
     """

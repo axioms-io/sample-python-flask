@@ -3,13 +3,13 @@ Private API with role based access
 """
 from flask import Blueprint
 from flask import jsonify, request
-from axioms_flask.decorators import is_authenticated, has_required_roles
+from axioms_flask.decorators import has_valid_access_token, has_required_roles
 
 role_api = Blueprint("role_api", __name__)  # pylint: disable=invalid-name
 
 
 @role_api.route("/role", methods=["GET", "POST", "PATCH", "DELETE"])
-@is_authenticated
+@has_valid_access_token
 @has_required_roles(["sample:role"])
 def sample_role():
     """

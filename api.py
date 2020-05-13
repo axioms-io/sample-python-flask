@@ -38,11 +38,12 @@ app.register_blueprint(permission_api)
 def handle_auth_error(ex):
     response = jsonify(ex.error)
     response.status_code = ex.status_code
-    response.headers[
-        "WWW-Authenticate"
-    ] = "Bearer realm='{}', error='{}', error_description='{}'".format(
-        app.config["AXIOMS_DOMAIN"], ex.error["error"], ex.error["error_description"]
-    )
+    if ex.status_code == 401:
+        response.headers[
+            "WWW-Authenticate"
+        ] = "Bearer realm='{}', error='{}', error_description='{}'".format(
+            app.config["AXIOMS_DOMAIN"], ex.error["error"], ex.error["error_description"]
+        )
     return response
 
 
